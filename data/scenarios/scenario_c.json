@@ -1,0 +1,70 @@
+{
+  "name": "Scenario C",
+  "description": "Unit commitment (gas unit on/off, 40 MW minimum, $800 start-up), forecast uncertainty (3 weather cases) and a 10% reserve requirement on top of Scenario B.",
+  "periods": [
+    {
+      "name": "Morning",
+      "demand": 80,
+      "solar": 30,
+      "wind": 20
+    },
+    {
+      "name": "Afternoon",
+      "demand": 120,
+      "solar": 120,
+      "wind": 20
+    },
+    {
+      "name": "Evening",
+      "demand": 150,
+      "solar": 10,
+      "wind": 40
+    }
+  ],
+  "gas_max": 100,
+  "battery": {
+    "capacity": 50,
+    "max_rate": 30,
+    "initial_soc": 0,
+    "efficiency": 1.0
+  },
+  "costs": {
+    "gas_price": 60,
+    "carbon_price": 50,
+    "emission_factor": 0.45,
+    "curtailment_penalty": 10,
+    "discharge_wear": 5,
+    "unserved_penalty": 1000
+  },
+  "unit_commitment": {
+    "min_output": 40,
+    "startup_cost": 800,
+    "initial_on": false
+  },
+  "uncertainty": {
+    "cases": [
+      {
+        "name": "cloudy and calm",
+        "probability": 0.3,
+        "solar_factor": 0.7,
+        "wind_factor": 0.8
+      },
+      {
+        "name": "as forecast",
+        "probability": 0.5,
+        "solar_factor": 1.0,
+        "wind_factor": 1.0
+      },
+      {
+        "name": "sunny and windy",
+        "probability": 0.2,
+        "solar_factor": 1.1,
+        "wind_factor": 1.2
+      }
+    ]
+  },
+  "reserve": {
+    "required_fraction": 0.1,
+    "shortfall_penalty": 50
+  }
+}

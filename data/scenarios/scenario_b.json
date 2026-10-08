@@ -1,0 +1,19 @@
+{
+  "name": "Scenario B",
+  "description": "Default. Afternoon solar surplus of 20 MW that the battery can shift to the evening peak.",
+  "periods": [
+    {"name": "Morning",   "demand": 80,  "solar": 30,  "wind": 20},
+    {"name": "Afternoon", "demand": 120, "solar": 120, "wind": 20},
+    {"name": "Evening",   "demand": 150, "solar": 10,  "wind": 40}
+  ],
+  "gas_max": 100,
+  "battery": {"capacity": 50, "max_rate": 30, "initial_soc": 0, "efficiency": 1.0},
+  "costs": {
+    "gas_price": 60,
+    "carbon_price": 50,
+    "emission_factor": 0.45,
+    "curtailment_penalty": 10,
+    "discharge_wear": 5,
+    "unserved_penalty": 1000
+  }
+}

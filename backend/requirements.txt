@@ -1,0 +1,25 @@
+# Q-GridOpt backend dependencies (Python 3.12 ONLY - do not install with 3.14)
+
+# --- Quantum ---
+qiskit>=2,<3
+qiskit-aer
+qiskit-ibm-runtime
+qiskit-optimization>=0.7
+matplotlib
+pylatexenc
+
+# --- Classical / numerics ---
+numpy
+scipy
+pulp[cbc]>=4,<5  # 4.x ships CBC via the [cbc] extra (cbcbox); use COIN_CMD + prob.add_variable
+
+# --- API ---
+fastapi
+uvicorn[standard]
+pydantic>=2,<3
+pydantic-settings
+python-dotenv
+
+# --- Tests ---
+pytest
+httpx2>=2.13,<3  # Starlette's TestClient deprecates httpx in favour of httpx2

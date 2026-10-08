@@ -1,0 +1,19 @@
+{
+  "name": "Scenario A",
+  "description": "Original data. Afternoon solar 90 MW: no renewable surplus, so the battery has nothing useful to store.",
+  "periods": [
+    {"name": "Morning",   "demand": 80,  "solar": 30, "wind": 20},
+    {"name": "Afternoon", "demand": 120, "solar": 90, "wind": 20},
+    {"name": "Evening",   "demand": 150, "solar": 10, "wind": 40}
+  ],
+  "gas_max": 100,
+  "battery": {"capacity": 50, "max_rate": 30, "initial_soc": 0, "efficiency": 1.0},
+  "costs": {
+    "gas_price": 60,
+    "carbon_price": 50,
+    "emission_factor": 0.45,
+    "curtailment_penalty": 10,
+    "discharge_wear": 5,
+    "unserved_penalty": 1000
+  }
+}

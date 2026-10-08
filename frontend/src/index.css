@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* Q-GridOpt design system: light, editorial. Cool paper canvas, ink-blue text, flat white panels with
+   hairline borders and quantum accents (indigo + cyan). Colour is used to encode data (gas = orange, renewables = green,
+   quantum = teal, IBM hardware = blue). Token names are shared with the chart theme in charts/theme.ts. */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-console: #f5f6fb;
+  --color-panel: #ffffff;
+  --color-panel-2: rgba(236, 238, 250, 0.6);
+  --color-line: #e0e3f0;
+  --color-line-bright: #c7cce6;
+  --color-ink: #14172e;
+  --color-dim: #565b7a;
+  --color-faint: #8b90ad;
+
+  --color-solar: #b97f00;
+  --color-wind: #3e8e41;
+  --color-gas: #c2570c;
+  --color-battery: #7a5fa8;
+  --color-unserved: #b3261e;
+  --color-demand: #1b1b1a;
+  --color-ok: #2e7d4f;
+  --color-warn: #b7791f;
+  --color-bad: #b3261e;
+  --color-quantum: #5b3fd8;
+  --color-cyan: #0aa5c2;
+  --color-noisy: #0aa5c2;
+  --color-ibm: #1f5fbf;
+  --color-classical: #6b6a63;
+
+  --animate-fade-up: fade-up 0.35s ease-out both;
+  --animate-pulse-ring: pulse-ring 2s ease-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+    80%, 100% { box-shadow: 0 0 0 6px transparent; opacity: 0.9; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-console);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(91, 63, 216, 0.18);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-bright) transparent;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dim);
+}
+
+/* frosted glass panel: translucent white over the quantum backdrop, blurred, with a bright top edge */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5));
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 0 0 1px rgba(91, 63, 216, 0.08),
+    0 12px 32px -16px rgba(40, 40, 120, 0.25);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+}
+
+.flat {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(91, 63, 216, 0.07);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+}
+
+/* glass tab bar + raised glass active tab */
+.tabs {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 0 1px rgba(91, 63, 216, 0.08), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  backdrop-filter: blur(14px) saturate(1.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+}
+.tab-active {
+  color: var(--color-quantum);
+  font-weight: 600;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 1px rgba(91, 63, 216, 0.22), 0 6px 14px -6px rgba(91, 63, 216, 0.4);
+}
+
+/* solid accent fill (primary actions, active tabs) */
+.accent-fill {
+  background: linear-gradient(135deg, #5b3fd8 0%, #3b6fe0 60%, #0aa5c2 100%);
+}
+.quantum-text {
+  background: linear-gradient(120deg, #5b3fd8, #0aa5c2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* quantum backdrop: orbital rings (top right), probability waves (bottom left), qubit lattice dots */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(640px 460px at 88% 6%, rgba(91, 63, 216, 0.2), transparent 70%),
+    radial-gradient(620px 440px at 6% 96%, rgba(10, 165, 194, 0.18), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='760' viewBox='0 0 760 760' fill='none' stroke='%235b3fd8' stroke-width='1.2'%3E%3Cellipse cx='500' cy='260' rx='250' ry='95'/%3E%3Cellipse cx='500' cy='260' rx='250' ry='95' transform='rotate(60 500 260)'/%3E%3Cellipse cx='500' cy='260' rx='250' ry='95' transform='rotate(120 500 260)'/%3E%3Ccircle cx='500' cy='260' r='7' fill='%235b3fd8' stroke='none'/%3E%3Ccircle cx='748' cy='260' r='4' fill='%230aa5c2' stroke='none'/%3E%3Ccircle cx='376' cy='47' r='4' fill='%230aa5c2' stroke='none'/%3E%3Ccircle cx='376' cy='473' r='4' fill='%230aa5c2' stroke='none'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='260' viewBox='0 0 900 260' fill='none' stroke-width='1.3'%3E%3Cpath stroke='%230aa5c2' d='M0 130 C 60 20, 120 20, 180 130 S 300 240, 360 130 S 480 20, 540 130 S 660 240, 720 130 S 840 20, 900 130'/%3E%3Cpath stroke='%235b3fd8' d='M0 130 C 60 60, 120 60, 180 130 S 300 200, 360 130 S 480 60, 540 130 S 660 200, 720 130 S 840 60, 900 130'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(91, 63, 216, 0.14) 1px, transparent 1px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-position: 0 0, 0 0, right -160px top -120px, left -120px bottom -40px, 0 0;
+  background-size: auto, auto, 760px 760px, 900px 260px, 28px 28px;
+  opacity: 0.18;
+}
+
+/* staggered entrance for stacked page sections */
+.stagger > * {
+  animation: var(--animate-fade-up);
+}
+.stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger > *:nth-child(3) { animation-delay: 0.14s; }
+.stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger > *:nth-child(5) { animation-delay: 0.26s; }
+.stagger > *:nth-child(6) { animation-delay: 0.32s; }
+.stagger > *:nth-child(n + 7) { animation-delay: 0.38s; }
+
+/* animated power flow along an SVG path */
+@keyframes flow {
+  to { stroke-dashoffset: -28; }
+}
+.flow {
+  stroke-dasharray: 2 12;
+  stroke-linecap: round;
+  animation: flow 0.9s linear infinite;
+}
+.flow-rev {
+  animation-direction: reverse;
+}
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #eceefa 25%, #e0e3f0 50%, #eceefa 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.circuit-svg svg {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+  background: #ffffff;
+  border: 1px solid var(--color-line-bright);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input[type="number"]:hover,
+input[type="text"]:hover,
+select:hover {
+  border-color: var(--color-faint);
+}
+input[type="checkbox"] {
+  accent-color: #5b3fd8;
+  width: 1rem;
+  height: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-quantum);
+  box-shadow: 0 0 0 3px rgba(91, 63, 216, 0.16);
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-quantum);
+  outline-offset: 2px;
+}
+
+/* tables and code blocks across the app */
+tbody tr {
+  transition: background-color 0.15s;
+}
+tbody tr:hover {
+  background: rgba(91, 63, 216, 0.04);
+}
+pre.num {
+  border-radius: 6px;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel-2);
+}
+
+/* default breathing room between table columns; utility classes on a cell still win (base layer) */
+@layer base {
+  table th:not(:last-child),
+  table td:not(:last-child) {
+    padding-right: 0.9rem;
+  }
+}

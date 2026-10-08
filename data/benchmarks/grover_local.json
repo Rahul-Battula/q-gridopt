@@ -1,0 +1,157 @@
+{
+  "kind": "grover_simulation",
+  "backend": "fake_fez (local noisy simulation)",
+  "job_id": "0ddafcb4-684c-477d-a281-98c81843ccda",
+  "created_at": "2026-10-08T18:13:53+00:00",
+  "preset": "scenario_b",
+  "tier": "Q3",
+  "marked": "the optimal plan only (late stage of the adaptive search)",
+  "optimum_index": 2,
+  "rows": [
+    {
+      "rounds": 0,
+      "shots": 4096,
+      "p_optimum_measured": 0.11962890625,
+      "std_error": 0.005070735754662288,
+      "p_optimum_ideal": 0.12500000000000003,
+      "uniform_guess": 0.125,
+      "amplification_over_guessing": 0.95703125,
+      "transpiled": {
+        "depth": 4,
+        "two_qubit_gates": 0,
+        "two_qubit_depth": 0,
+        "total_gates": 9,
+        "active_qubits": 3,
+        "ops": {
+          "rz": 6,
+          "sx": 3,
+          "measure": 3,
+          "barrier": 1
+        }
+      },
+      "top_outcomes": [
+        {
+          "plan_index": 4,
+          "bitstring": "100",
+          "count": 535
+        },
+        {
+          "plan_index": 1,
+          "bitstring": "001",
+          "count": 527
+        },
+        {
+          "plan_index": 6,
+          "bitstring": "110",
+          "count": 521
+        },
+        {
+          "plan_index": 0,
+          "bitstring": "000",
+          "count": 517
+        }
+      ]
+    },
+    {
+      "rounds": 1,
+      "shots": 4096,
+      "p_optimum_measured": 0.753662109375,
+      "std_error": 0.006732463009238015,
+      "p_optimum_ideal": 0.7812500000000001,
+      "uniform_guess": 0.125,
+      "amplification_over_guessing": 6.029296875,
+      "transpiled": {
+        "depth": 53,
+        "two_qubit_gates": 12,
+        "two_qubit_depth": 12,
+        "total_gates": 79,
+        "active_qubits": 3,
+        "ops": {
+          "sx": 34,
+          "rz": 31,
+          "cz": 12,
+          "measure": 3,
+          "x": 2,
+          "barrier": 1
+        }
+      },
+      "top_outcomes": [
+        {
+          "plan_index": 2,
+          "bitstring": "010",
+          "count": 3087
+        },
+        {
+          "plan_index": 0,
+          "bitstring": "000",
+          "count": 162
+        },
+        {
+          "plan_index": 6,
+          "bitstring": "110",
+          "count": 156
+        },
+        {
+          "plan_index": 3,
+          "bitstring": "011",
+          "count": 145
+        }
+      ]
+    },
+    {
+      "rounds": 2,
+      "shots": 4096,
+      "p_optimum_measured": 0.856689453125,
+      "std_error": 0.0054748321987830055,
+      "p_optimum_ideal": 0.9453124999999999,
+      "uniform_guess": 0.125,
+      "amplification_over_guessing": 6.853515625,
+      "transpiled": {
+        "depth": 99,
+        "two_qubit_gates": 23,
+        "two_qubit_depth": 23,
+        "total_gates": 149,
+        "active_qubits": 3,
+        "ops": {
+          "sx": 66,
+          "rz": 57,
+          "cz": 23,
+          "x": 3,
+          "measure": 3,
+          "barrier": 1
+        }
+      },
+      "top_outcomes": [
+        {
+          "plan_index": 2,
+          "bitstring": "010",
+          "count": 3509
+        },
+        {
+          "plan_index": 3,
+          "bitstring": "011",
+          "count": 111
+        },
+        {
+          "plan_index": 0,
+          "bitstring": "000",
+          "count": 111
+        },
+        {
+          "plan_index": 6,
+          "bitstring": "110",
+          "count": 100
+        }
+      ]
+    }
+  ],
+  "qpu_usage_seconds_whole_job": 0,
+  "options": {
+    "local_testing_mode": true
+  },
+  "versions": {
+    "qiskit": "2.5.2",
+    "qiskit-aer": "0.17.2",
+    "qiskit-ibm-runtime": "0.50.0"
+  }
+}

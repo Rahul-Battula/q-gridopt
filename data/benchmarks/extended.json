@@ -1,0 +1,349 @@
+{
+  "generated": "2026-10-08T16:32:51+00:00",
+  "a": [
+    {
+      "model": "Scenario B (base model)",
+      "tier": "Q3",
+      "no_battery": 10925.0,
+      "exact": 9175.0,
+      "milp": 9175.0,
+      "plan": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "gas": "-",
+      "startups": 0,
+      "startup_cost": 0.0,
+      "reserve_cost": 0.0,
+      "worst_case": null,
+      "unserved_mwh": 0.0
+    },
+    {
+      "model": "+ unit commitment",
+      "tier": "Q3U",
+      "no_battery": 13450.0,
+      "exact": 11700.0,
+      "milp": 10825.0,
+      "plan": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "gas": "on off on",
+      "startups": 2,
+      "startup_cost": 1600.0,
+      "reserve_cost": 0.0,
+      "worst_case": null,
+      "unserved_mwh": 0.0
+    },
+    {
+      "model": "+ forecast uncertainty",
+      "tier": "Q3U",
+      "no_battery": 22631.75,
+      "exact": 14694.0,
+      "milp": 14096.5,
+      "plan": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "gas": "on on on",
+      "startups": 1,
+      "startup_cost": 800.0,
+      "reserve_cost": 0.0,
+      "worst_case": 15255.0,
+      "unserved_mwh": 0.0
+    },
+    {
+      "model": "+ reserve margin (Scenario C)",
+      "tier": "Q3U",
+      "no_battery": 23891.75,
+      "exact": 14784.0,
+      "milp": 14096.5,
+      "plan": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "gas": "on on on",
+      "startups": 1,
+      "startup_cost": 800.0,
+      "reserve_cost": 90.0,
+      "worst_case": 15555.0,
+      "unserved_mwh": 0.0
+    }
+  ],
+  "b": [
+    {
+      "tier": "Q3U",
+      "qubits": 12,
+      "p": 1,
+      "p_valid": 0.2354060122562558,
+      "p_optimal": 0.004113911602763405,
+      "random_p_optimal": 0.000244140625,
+      "ar": 0.13636919809589323,
+      "two_qubit_gates": 179,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.033203125,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": 0.001953125
+    },
+    {
+      "tier": "Q3U",
+      "qubits": 12,
+      "p": 2,
+      "p_valid": 0.4119014777660455,
+      "p_optimal": 0.008570535145659747,
+      "random_p_optimal": 0.000244140625,
+      "ar": 0.25549291835076926,
+      "two_qubit_gates": 394,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.033203125,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": 0.003662109375
+    },
+    {
+      "tier": "Q3U",
+      "qubits": 12,
+      "p": 3,
+      "p_valid": 0.9025986512757358,
+      "p_optimal": 0.019651602156755453,
+      "random_p_optimal": 0.000244140625,
+      "ar": 0.566801158587068,
+      "two_qubit_gates": 639,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.033203125,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": 0.007080078125
+    },
+    {
+      "tier": "Q9U",
+      "qubits": 18,
+      "p": 1,
+      "p_valid": 0.1568867727879864,
+      "p_optimal": 0.0010606303049105635,
+      "random_p_optimal": 3.814697265625e-06,
+      "ar": 0.05327997563488133,
+      "two_qubit_gates": 396,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.018310546875,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": null
+    },
+    {
+      "tier": "Q9U",
+      "qubits": 18,
+      "p": 2,
+      "p_valid": 0.20138332249879626,
+      "p_optimal": 0.0018615816756703445,
+      "random_p_optimal": 3.814697265625e-06,
+      "ar": 0.08574490645496104,
+      "two_qubit_gates": 1056,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.018310546875,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": null
+    },
+    {
+      "tier": "Q9U",
+      "qubits": 18,
+      "p": 3,
+      "p_valid": 0.22581770387517863,
+      "p_optimal": 0.0024391406306167257,
+      "random_p_optimal": 3.814697265625e-06,
+      "ar": 0.10741943048096962,
+      "two_qubit_gates": 1557,
+      "best_found": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "optimal": 14784.0,
+      "annealing_p_optimal": 0.018310546875,
+      "annealing_best": {
+        "path": [
+          0.0,
+          20.0,
+          0.0
+        ],
+        "objective": 14784.0,
+        "commits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "exact_best": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "exact_gas": "on on on",
+      "noisy_p_optimal": null
+    }
+  ]
+}
