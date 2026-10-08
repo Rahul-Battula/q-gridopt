@@ -3,7 +3,17 @@
 **Battery scheduling for a small renewable-energy grid, solved with QAOA on Qiskit simulators and a real IBM Quantum computer, and benchmarked honestly against classical solvers.**
 
 > **Claim:** We formulate renewable-energy scheduling with battery storage as a QUBO, solve it with QAOA on simulators and IBM Quantum hardware, and benchmark it against exact classical solvers.
-> **Not claimed:** quantum advantage or speedup. At this size a classical computer solves every instance exactly in milliseconds. See [Quantum advantage: the honest answer](#4-quantum-advantage-the-honest-answer).
+> **Not claimed:** quantum advantage over the best classical solver. At this size a classical computer solves every instance exactly in milliseconds. We do measure a Grover query speedup over *unstructured* search. See [Quantum advantage: the honest answer](#4-quantum-advantage-the-honest-answer).
+
+## Submission summary
+
+**1. Novelty:** We encode battery scheduling as a QUBO whose energy equals the true dollar cost, verified on every bitstring. It extends to gas unit commitment, forecast uncertainty and reserve margins while staying quadratic. QAOA chooses the battery plan, a real IBM quantum computer runs it, and one shared evaluator scores every solver fairly.
+
+**2. Qiskit programming:** Current Qiskit 2.x throughout: QuadraticProgram, SparsePauliOp Ising conversion cross-checked against to_ising, qaoa_ansatz, Aer EstimatorV2/SamplerV2, FakeFez noise simulation, preset pass-manager transpilation, and Runtime Sampler on ibm_marrakesh with dynamical decoupling and twirling. Grover search uses DiagonalGate and grover_operator. All APIs were verified against installed versions.
+
+**3. Measurable results:** On 20 random grids, QAOA's best plan is optimal on 100% of instances (Q18: 3 grids), F1 1.00, matching exact, annealing and LP baselines; random sampling falls to 10% at Q18. On real hardware, 3-qubit P(optimal) reached 92% versus 12.5% guessing. Full accuracy, F1 and timing result tables are included.
+
+**4. Quantum advantage:** None over the best classical solver is claimed; dynamic programming solves this chain problem instantly. We measure Grover's provable quadratic query speedup over unstructured search: 96x fewer queries at 18 qubits, break-even near 4 qubits. Real advantage needs fault-tolerant hardware and larger, unstructured problems.
 
 ---
 
